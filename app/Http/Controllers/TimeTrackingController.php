@@ -18,6 +18,16 @@ class TimeTrackingController
         return view('timetracking.started');
     }
 
+    public function isInProgress() {
+        $existingStartedTime = TimeTracking::whereNotNull("started_at")->whereNull("ended_at")->first();
+
+        if ($existingStartedTime) {
+            return response()->json(['in_progress' => true]);
+        }
+
+        return response()->json(['in_progress' => false]);
+    }
+
     private function startTracking() {
         $timeTracking = new TimeTracking();
         $timeTracking->started_at = now();
