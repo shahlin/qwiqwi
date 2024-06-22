@@ -19,7 +19,10 @@ class TimeTrackingAnalyticsController
             ->whereNotNull("ended_at")
             ->get()
             ->filter(function($time) {
-                return ($time->ended_at->diffInDays($time->started_at) == 0);
+                $to = \Carbon\Carbon::createFromFormat('Y-m-d H:s:i', $time->started_at);
+                $from = \Carbon\Carbon::createFromFormat('Y-m-d H:s:i', $time->ended_at);
+
+                return ($to->diffInDays($from) == 0);
             });
         
         return $timeList;
