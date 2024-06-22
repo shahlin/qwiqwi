@@ -23,7 +23,9 @@ class TimeTrackingAnalyticsController
                 $from = \Carbon\Carbon::createFromFormat('Y-m-d H:s:i', $time->ended_at);
 
                 return ($to->diffInDays($from) == 0);
-            });
+            })
+            ->values()
+            ->all();
         
         return $timeList;
     }
