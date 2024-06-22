@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TimeTrackingController;
+use App\Http\Controllers\TimeTrackingAnalyticsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +21,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('/in-progress', [TimeTrackingController::class, 'isInProgress']);
+Route::get('/stats', [TimeTrackingAnalyticsController::class, 'getStats']);
