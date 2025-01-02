@@ -14,4 +14,5 @@ use App\Http\Controllers\TimeTrackingController;
 |
 */
 
+Route::get('/list', [TimeTrackingController::class, 'list']);
 Route::get('/track-time', [TimeTrackingController::class, 'trackTime']);
