@@ -31,7 +31,7 @@
                     <div class="col">
                         <div class="card h-100 tracker-card">
                             <div class="card-body">
-                                <h5 class="card-title">{{ $type }}</h5>
+                                <h5 class="card-title">{{ ucwords($type) }}</h5>
                                 <div class="tracker-value my-3">
                                     @if ($tracker['minutes'] >= 60)
                                         {{ round($tracker['minutes'] / 60, 2) }} <small class="text-muted" style="font-size: 1rem;">{{ $tracker['minutes'] / 60 == 1 ? 'hour' : 'hours' }}</small>
